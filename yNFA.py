@@ -1,7 +1,6 @@
 with open("yNFA.in", 'r') as f:
     nrStari=int(f.readline())
     Q=set(f.readline().split())
-    sigma = set(f.readline().split())
     nrTranzitii=int(f.readline())
     delta={}
     for _ in range(nrTranzitii):
@@ -48,3 +47,5 @@ def verif(cuvant):
 with open("yNFA.out", 'w') as g:
     for cuvant in cuvinte:
         g.write(cuvant+" "+verif(cuvant)+"\n")
+    sigma = set([k for subdict in delta.values() for k in subdict.keys()])
+    print("Alfabetul folosit: " + str(sigma))
